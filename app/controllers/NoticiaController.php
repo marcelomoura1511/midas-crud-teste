@@ -24,6 +24,7 @@ class NoticiaController extends ControllerBase
     public function editarAction($id)
     {
         $noticia = Noticia::findFirstById($id);
+        // var_dump($noticia->data_publicacao);exit;
         $data_publicacao = new DateTime($noticia->data_publicacao);
         $noticia->data_publicacao=$data_publicacao->format('d/m/Y');
         $data_ultima_atualizacao = new DateTime($noticia->data_ultima_atualizacao);
@@ -63,8 +64,11 @@ class NoticiaController extends ControllerBase
         $noticia->texto=$this->request->getPost('texto', 'string');
         if($this->request->getPost('publicado', 'int')==1){
             $noticia->publicado = 1;
-            $data_publicacao = new DateTime($this->request->getPost('data_publicacao'));
-            $noticia->data_publicacao = $data_publicacao->format( 'Y-m-d' );
+
+            $data_publicacao = implode("-",array_reverse(explode("/",$this->request->getPost('data_publicacao'))));
+            //$data_publicacao = new DateTime($this->request->getPost('data_publicacao'));
+            //var_dump($data_publicacao);exit;
+            $noticia->data_publicacao = $data_publicacao;
         } else{
             $noticia->publicado = 0;
             $noticia->data_publicacao = NULL;
