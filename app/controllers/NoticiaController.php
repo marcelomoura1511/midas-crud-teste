@@ -70,6 +70,7 @@ class NoticiaController extends ControllerBase
             //var_dump($data_publicacao);exit;
             $noticia->data_publicacao = $data_publicacao;
         } else{
+
             $noticia->publicado = 0;
             $noticia->data_publicacao = NULL;
         }
@@ -97,6 +98,9 @@ class NoticiaController extends ControllerBase
      public function excluirAction($id)
      {
         $noticia = Noticia::findFirstById($id);
+        //deletando as categorias associada a notícia
+        $noticia_categorias = NoticiaCategoria::find(["noticia_id=$id"]);
+        $noticia_categorias->delete();
         if($noticia->delete()){
             $this->flash->success("Notícia deletada com sucesso!");
         }else{
