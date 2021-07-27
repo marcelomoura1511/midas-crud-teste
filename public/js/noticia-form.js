@@ -1,3 +1,9 @@
+$(document).ready(function () {
+    $("#categorias").selectpicker({
+        noneSelectedText : 'Selecione' // by this default 'Nothing selected' -->will change to Please Select
+    });
+});
+
 $(".hasDatepicker2").datepicker({
     dateFormat: 'dd/mm/yy',
    dayNames: ['Domingo', 'Segunda', 'Terça', 'Quarta', 'Quinta', 'Sexta', 'Sábado'],
@@ -12,7 +18,9 @@ $(".hasDatepicker2").datepicker({
 $("#publicado").change(function(){
     if($("#publicado").is(":checked")){
         $("#data-publicacao-row").css("display", "block");
+        $("input[name='data_publicacao']").prop("required", true);
     }else{
         $("#data-publicacao-row").css("display", "none");
+        $("input[name='data_publicacao']").prop("required", false);
     }
 });

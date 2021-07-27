@@ -38,9 +38,9 @@
                             <div class="row">
                                 <div class="form-group col-sm-12">
                                     <div class="col-sm-9">
-                                        <label>Categoria: </label>
-                                        <select name="categoria[]" class="selectpicker col-sm-10" multiple
-                                            data-live-search="true">
+                                        <label  class="col-sm-3">Categoria: </label>
+                                        <select name="categoria[]" class="selectpicker col-sm-5" multiple
+                                            data-live-search="true" id="categorias">
                                             {% for categoria in categorias %}
                                             <option value="{{categoria.id}}" {% if categoria.id in categorias_selected %}
                                                 selected {% endif %}>{{categoria.descricao}}</option>
@@ -56,13 +56,10 @@
                                 </div>
                             </div>
                             <div class="row" id="data-publicacao-row" {% if noticia.publicado==0 %} style="display:none" {% endif %} >
-                                <div class="form-group col-sm-12">
-                                    <div class="col-sm-3 col-md-2">
-                                        <label>Data da publicação: </label>
-                                    </div>
-                                    
-                                    <div class="input-group date col-sm-2" data-provide="datepicker">
-                                        <input value="{{noticia.data_publicacao}}"type="text" name="data_publicacao" id="hasDatepicker" class="form-control fromDate large hasDatepicker2" maxlength="10" placeholder="dd-mm-yyyy" autocomplete="off">
+                                <div class="form-group col-sm-9">
+                                    <label class="col-sm-3">Data da publicação: </label>
+                                    <div class="input-group date" data-provide="datepicker">
+                                        <input type="text" value="{{noticia.data_publicacao}}" name="data_publicacao" id="hasDatepicker" class="form-control fromDate large hasDatepicker2" maxlength="10" placeholder="dd-mm-yyyy" autocomplete="off" style="margin-left: 22px;">
                                     </div>
                                 </div>
                             </div>
@@ -87,7 +84,6 @@
 
 <script>
     $(document).ready(function () {
-
 
     });
 </script>

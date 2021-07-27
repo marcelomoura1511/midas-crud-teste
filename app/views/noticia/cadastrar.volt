@@ -30,8 +30,8 @@
                             <div class="row">
                                 <div class="form-group col-sm-12">
                                     <div class="col-sm-9">
-                                        <label>Categoria: </label>
-                                        <select name="categoria[]" class="selectpicker" multiple
+                                        <label class="col-sm-3">Categoria: </label>
+                                        <select name="categoria[]" id="categorias" class="selectpicker col-sm-5" multiple
                                             data-live-search="true">
                                             {% for categoria in categorias %}
                                             <option value="{{categoria.id}}">{{categoria.descricao}}</option>
@@ -47,13 +47,10 @@
                                 </div>
                             </div>
                             <div class="row" id="data-publicacao-row" style="display:none">
-                                <div class="form-group col-sm-12">
-                                    <div class="col-sm-3 col-md-2">
-                                        <label>Data da publicação: </label>
-                                    </div>
-                                    
-                                    <div class="input-group date col-sm-2" data-provide="datepicker">
-                                        <input type="text" name="data_publicacao" id="hasDatepicker" class="form-control fromDate large hasDatepicker2" maxlength="10" placeholder="dd-mm-yyyy" autocomplete="off">
+                                <div class="form-group col-sm-9">
+                                    <label class="col-sm-3">Data da publicação: </label>
+                                    <div class="input-group date" data-provide="datepicker">
+                                        <input type="text" name="data_publicacao" id="hasDatepicker" class="form-control fromDate large hasDatepicker2" maxlength="10" placeholder="dd-mm-yyyy" autocomplete="off" style="margin-left: 22px;">
                                     </div>
                                 </div>
                             </div>
